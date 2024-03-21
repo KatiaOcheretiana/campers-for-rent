@@ -67,7 +67,7 @@ export const CampersItem = ({ camper }) => {
             <LocationIcon>
               <use href={sprite + "#icon-location"} />
             </LocationIcon>
-            {location}
+            {location.split(", ").reverse().join(", ")}
           </LocationText>
         </RationLocationLine>
         <Description>{description}</Description>

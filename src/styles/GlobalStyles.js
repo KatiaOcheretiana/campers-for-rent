@@ -56,6 +56,6 @@ button {
 
 export const Container = styled.div`
   width: 1440px;
-  padding: 0 96px;
+  padding: 0 64px;
   margin: 0 auto;
 `;
