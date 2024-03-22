@@ -2,12 +2,12 @@ import Modal from 'react-modal';
 import {
   AdditionalNavigation,
   CloseModalBtn,
+  ContentWrapper,
   Description,
   Image,
   ImageWrapper,
   LocationIcon,
   LocationText,
-  ModalBackdrop,
   Name,
   NameWrapper,
   Price,
@@ -17,72 +17,53 @@ import {
   StyledLink,
 } from './ModalWindow.styled';
 import sprite from '../../assets/sprite.svg';
-import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCampersById } from '../../redux/catalog/operations';
 
 const customStyles = {
   overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: ' rgba(17, 18, 19, 0.4)',
-    // zIndex: 1200,
+    backgroundColor: 'rgba(17, 18, 19, 0.4)',
   },
-
   content: {
+    position: 'absolute',
     top: '50%',
     left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#fff',
     borderRadius: '20px',
     padding: '40px',
     width: '982px',
     height: '720px',
+    overflowY: 'scroll',
   },
 };
 
-export const ModalWindow = ({ isOpen, onRequestClose, camper }) => {
-  const {
-    name,
-    price,
-    rating,
-    location,
-    adults,
-    children,
-    engine,
-    transmission,
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
-    description,
-    details,
-    gallery,
-    reviews,
-  } = camper;
+const ModalWindow = ({ isOpen, onRequestClose, camperInfo }) => {
+  const { camperId } = useParams();
+  const dispatch = useDispatch();
 
+  console.log(camperId);
+
+  useEffect(() => {
+    dispatch(getCampersById(camperId));
+  }, []);
+
+  const { name, price, rating, location, description, gallery, reviews } =
+    camperInfo;
   return (
-    <ModalBackdrop>
+    <ContentWrapper>
       <Modal
         isOpen={isOpen}
         onRequestClose={onRequestClose}
         style={customStyles}
       >
-        <div>
+        <ContentWrapper>
           <div>
             <NameWrapper>
               <Name>{name}</Name>
-              <CloseModalBtn onClick={() => onModalClose()}>
+              <CloseModalBtn onClick={() => onRequestClose()}>
                 <use href={`${sprite}#icon-close`}></use>
               </CloseModalBtn>
             </NameWrapper>
@@ -112,17 +93,22 @@ export const ModalWindow = ({ isOpen, onRequestClose, camper }) => {
             <Description>{description}</Description>
           </div>
           <AdditionalNavigation>
-            <StyledLink to="features">Features</StyledLink>
-
-            <StyledLink to="reviews">Reviews</StyledLink>
+            <StyledLink to={`/catalog/${camperInfo._id}/features`}>
+              Features
+            </StyledLink>
+            <StyledLink to={`/catalog/${camperInfo._id}/reviews`}>
+              Reviews
+            </StyledLink>
           </AdditionalNavigation>
           <Suspense>
             <Outlet />
           </Suspense>
-        </div>
+        </ContentWrapper>
       </Modal>
-    </ModalBackdrop>
+    </ContentWrapper>
   );
 };
 
 Modal.setAppElement('#root');
+
+export default ModalWindow;

@@ -19,10 +19,12 @@ import {
   RatingReviews,
   RationLocationLine,
 } from './CampersItem.styled';
-import { ModalWindow } from '../ModalWindow/ModalWindow';
+import { default as ModalWindow } from '../ModalWindow/ModalWindow';
+import { useNavigate } from 'react-router-dom';
 
 export const CampersItem = ({ camper }) => {
   const {
+    _id,
     name,
     price,
     rating,
@@ -36,11 +38,16 @@ export const CampersItem = ({ camper }) => {
     reviews,
   } = camper;
 
+  const navigate = useNavigate();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
+
+    const modalUrl = `/catalog/${_id}`;
+    navigate(modalUrl);
   };
 
   const handleCloseModal = () => {
@@ -50,7 +57,7 @@ export const CampersItem = ({ camper }) => {
 
   return (
     <>
-      <Item>
+      <Item key={_id}>
         <Image src={gallery[0]} alt={name} width={290} height={310} />
         <div>
           <NamePriceLine>
@@ -101,30 +108,37 @@ export const CampersItem = ({ camper }) => {
               </svg>
               <p> {engine}</p>
             </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + '#icon-kitchen'}
-                  style={{ stroke: '#101828', fill: 'transparent' }}
-                />
-              </svg>
-              <p> {details.kitchen && 'Kitchen'} </p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + '#icon-beds'}
-                  style={{ stroke: '#101828', fill: 'transparent' }}
-                />
-              </svg>
-              <p> {details.beds} beds</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use href={sprite + '#icon-ac'} />
-              </svg>
-              <p> AC</p>
-            </InfoBox>
+            {details.kitchen >= 1 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + '#icon-kitchen'}
+                    style={{ stroke: '#101828', fill: 'transparent' }}
+                  />
+                </svg>
+                <p> kitchen </p>
+              </InfoBox>
+            )}
+            {details.beds >= 1 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + '#icon-beds'}
+                    style={{ stroke: '#101828', fill: 'transparent' }}
+                  />
+                </svg>
+                <p> {details.beds} beds</p>
+              </InfoBox>
+            )}
+
+            {details.airConditioner >= 1 && (
+              <InfoBox>
+                <svg>
+                  <use href={sprite + '#icon-ac'} style={{ fill: '#101828' }} />
+                </svg>
+                <p> AC</p>
+              </InfoBox>
+            )}
           </InfoBoxField>
           <Button type="submit" onClick={() => handleOpenModal()}>
             Show more
@@ -133,7 +147,7 @@ export const CampersItem = ({ camper }) => {
       </Item>
       {isModalOpen && (
         <ModalWindow
-          camper={camper}
+          camperInfo={camper}
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}
         />

@@ -2,26 +2,22 @@ import styled from 'styled-components';
 import { globalColor } from '../../styles/root';
 import { NavLink } from 'react-router-dom';
 
-export const ModalBackdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
+export const ContentWrapper = styled.div`
+  overflow-y: auto;
 
-  width: 100vw;
-  height: 100vh;
+  &::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 7px;
+    height: 264px;
+  }
 
-  /* background-color: #10100f; */
-`;
+  &::-webkit-scrollbar-track {
+    background: red;
+  }
 
-export const ModalWindow = styled.div`
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  border-radius: 12px;
-  background-color: #10100f;
+  &::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+  }
 `;
 
 export const NameWrapper = styled.div`
@@ -38,6 +34,7 @@ export const Name = styled.h2`
 `;
 
 export const CloseModalBtn = styled.svg`
+  cursor: pointer;
   width: 32px;
   height: 32px;
   stroke: ${globalColor.darkText};
