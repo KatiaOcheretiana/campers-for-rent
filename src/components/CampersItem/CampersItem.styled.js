@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { globalColor } from "../../styles/root";
+import styled from 'styled-components';
+import { globalColor } from '../../styles/root';
 
 export const Item = styled.li`
   border: 1px solid rgba(16, 24, 40, 0.2);
@@ -147,7 +147,7 @@ export const Button = styled.button`
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: background-color 0.5s ease;
 
   &:hover {
     background-color: ${globalColor.btnHover};
