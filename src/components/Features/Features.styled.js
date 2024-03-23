@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { globalColor } from '../../styles/root';
 
 export const FeaturesWrapper = styled.div`
-  width: 430px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 `;
 
 export const InfoBoxField = styled.div`
@@ -67,6 +69,7 @@ export const TableItem = styled.td`
   font-weight: 500;
   font-size: 18px;
   line-height: 1.33;
+  padding: 0;
 
   &:first-letter {
     text-transform: uppercase;

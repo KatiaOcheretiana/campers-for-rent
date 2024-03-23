@@ -33,14 +33,14 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#fff',
     borderRadius: '20px',
-    padding: '40px',
+    padding: '40px 16px 40px 40px',
     width: '982px',
     height: '720px',
-    overflowY: 'scroll',
+    overflowY: 'hidden',
   },
 };
 
-const ModalWindow = ({ isOpen, onRequestClose, camperInfo }) => {
+const ModalWindow = ({ isOpen, onRequestClose, camperInfo, pathForModal }) => {
   const { camperId } = useParams();
   const dispatch = useDispatch();
 
@@ -53,7 +53,7 @@ const ModalWindow = ({ isOpen, onRequestClose, camperInfo }) => {
   const { name, price, rating, location, description, gallery, reviews } =
     camperInfo;
   return (
-    <ContentWrapper>
+    <div>
       <Modal
         isOpen={isOpen}
         onRequestClose={onRequestClose}
@@ -93,10 +93,10 @@ const ModalWindow = ({ isOpen, onRequestClose, camperInfo }) => {
             <Description>{description}</Description>
           </div>
           <AdditionalNavigation>
-            <StyledLink to={`/catalog/${camperInfo._id}/features`}>
+            <StyledLink to={`/${pathForModal}/${camperInfo._id}/features`}>
               Features
             </StyledLink>
-            <StyledLink to={`/catalog/${camperInfo._id}/reviews`}>
+            <StyledLink to={`/${pathForModal}/${camperInfo._id}/reviews`}>
               Reviews
             </StyledLink>
           </AdditionalNavigation>
@@ -105,7 +105,7 @@ const ModalWindow = ({ isOpen, onRequestClose, camperInfo }) => {
           </Suspense>
         </ContentWrapper>
       </Modal>
-    </ContentWrapper>
+    </div>
   );
 };
 

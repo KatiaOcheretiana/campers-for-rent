@@ -4,19 +4,24 @@ import { NavLink } from 'react-router-dom';
 
 export const ContentWrapper = styled.div`
   overflow-y: auto;
-
+  height: 100%;
+  padding-right: 16px;
   &::-webkit-scrollbar {
-    width: 8px;
-    border-radius: 7px;
-    height: 264px;
   }
 
   &::-webkit-scrollbar-track {
-    background: red;
+    background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
     background: #d9d9d9;
+    border-radius: 7px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 264px;
+    background: transparent;
   }
 `;
 
@@ -43,6 +48,7 @@ export const CloseModalBtn = styled.svg`
 export const RatingIcon = styled.svg`
   width: 16px;
   height: 16px;
+  fill: ${globalColor.rating};
 `;
 
 export const RatingReviews = styled.span`

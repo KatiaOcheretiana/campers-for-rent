@@ -1,16 +1,12 @@
-import { useSelector } from 'react-redux';
 import { CampersItem } from '../CampersItem/CampersItem';
 import { Button, List, Wrapper } from './CampersList.styled';
-import { selectVisibleCampers } from '../../redux/filter/selectors';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export const CampersList = () => {
-  const campersByFilter = useSelector(selectVisibleCampers);
-
+export const CampersList = ({ campers, pathForModal }) => {
   const [loadedCount, setLoadedCount] = useState(4);
   const perPage = 4;
 
-  const currentCampers = campersByFilter.slice(0, loadedCount);
+  const currentCampers = campers.slice(0, loadedCount);
 
   const loadMore = () => {
     setLoadedCount(loadedCount + perPage);
@@ -20,10 +16,14 @@ export const CampersList = () => {
     <Wrapper>
       <List>
         {currentCampers.map((camper) => (
-          <CampersItem key={camper._id} camper={camper} />
+          <CampersItem
+            key={camper._id}
+            camper={camper}
+            pathForModal={pathForModal}
+          />
         ))}
       </List>
-      {loadedCount < campersByFilter.length && (
+      {loadedCount < campers.length && (
         <Button onClick={loadMore}>Load more</Button>
       )}
     </Wrapper>

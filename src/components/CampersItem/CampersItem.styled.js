@@ -38,18 +38,11 @@ export const Price = styled.p`
   line-height: 1.25;
 `;
 
-export const IconLike = styled.svg`
-  width: 24px;
-  height: 24px;
-  fill: transparent;
-  stroke: ${globalColor.darkText};
-  stroke-width: 2.3px;
-`;
-
 export const PriceLikeField = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 8px;
 `;
 
@@ -61,6 +54,7 @@ export const NamePriceLine = styled.div`
 export const RatingIcon = styled.svg`
   width: 16px;
   height: 16px;
+  fill: ${globalColor.rating};
 `;
 
 export const RatingReviews = styled.span`

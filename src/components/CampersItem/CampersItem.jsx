@@ -4,7 +4,6 @@ import sprite from '../../assets/sprite.svg';
 import {
   Button,
   Description,
-  IconLike,
   Image,
   InfoBox,
   InfoBoxField,
@@ -21,8 +20,9 @@ import {
 } from './CampersItem.styled';
 import { default as ModalWindow } from '../ModalWindow/ModalWindow';
 import { useNavigate } from 'react-router-dom';
+import { ButtonLike } from '../ButtonLike/ButtonLike';
 
-export const CampersItem = ({ camper }) => {
+export const CampersItem = ({ camper, pathForModal }) => {
   const {
     _id,
     name,
@@ -46,7 +46,7 @@ export const CampersItem = ({ camper }) => {
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
 
-    const modalUrl = `/catalog/${_id}`;
+    const modalUrl = `/${pathForModal}/${_id}`;
     navigate(modalUrl);
   };
 
@@ -66,9 +66,7 @@ export const CampersItem = ({ camper }) => {
               <Price>
                 €{price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, '')}
               </Price>
-              <IconLike>
-                <use href={sprite + '#icon-like'} />
-              </IconLike>
+              <ButtonLike item={camper} />
             </PriceLikeField>
           </NamePriceLine>
           <RationLocationLine>
@@ -150,6 +148,7 @@ export const CampersItem = ({ camper }) => {
           camperInfo={camper}
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}
+          pathForModal={pathForModal}
         />
       )}
     </>

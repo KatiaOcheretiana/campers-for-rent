@@ -27,19 +27,9 @@ const catalogSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(getCampersById.pending, (state) => {
-        state.isLoading = true;
-      })
 
       .addCase(getCampersById.fulfilled, (state, action) => {
         state.camperById = action.payload;
-        state.isLoading = false;
-        state.error = null;
-      })
-
-      .addCase(getCampersById.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
       });
   },
 });

@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import { UserFormSchema } from './FormSchema';
 import {
+  Button,
   Comment,
   ContactUserParam,
   InfoText,
@@ -9,12 +10,18 @@ import {
   UserFormWrapper,
   WarningMessage,
 } from './BookForm.styled';
+import { Calendar } from '../Calendar/Calendar';
+import { useState } from 'react';
 
 export const BookForm = () => {
+  const [choosenDate, setChoosenDate] = useState('');
+
+  console.log(choosenDate);
+
   const initialValues = {
     name: '',
     email: '',
-    bookingDate: '',
+    bookingDate: choosenDate,
     comment: '',
   };
 
@@ -28,6 +35,7 @@ export const BookForm = () => {
           validationSchema={UserFormSchema}
           onSubmit={(values) => {
             console.log(values);
+            window.location.reload();
           }}
           enableReinitialize={true}
         >
@@ -47,7 +55,6 @@ export const BookForm = () => {
                 </label>
                 <label>
                   <InputField
-                    style={{ color: ' rgba(239, 237, 232, 0.6)' }}
                     name="email"
                     type="text"
                     autoComplete="off"
@@ -57,22 +64,18 @@ export const BookForm = () => {
                     <WarningMessage>{errors.email}</WarningMessage>
                   )}
                 </label>
-                <label>
-                  <InputField
-                    style={{ color: ' rgba(239, 237, 232, 0.6)' }}
-                    name="bookingDate"
-                    type="text"
-                    autoComplete="off"
-                    placeholder="Booking date"
-                  />
-                  {errors.email && touched.email && (
-                    <WarningMessage>{errors.email}</WarningMessage>
-                  )}
-                </label>
+                <Calendar
+                  name="bookingDate"
+                  errors={errors}
+                  touched={touched}
+                  setChoosenDate={setChoosenDate}
+                  choosenDate={initialValues.bookingDate}
+                  onChange={(date) => console.log(date)}
+                />
                 <Comment name="comment" placeholder="Comment"></Comment>
               </ContactUserParam>
 
-              <button type="submit">Save</button>
+              <Button type="submit">Send</Button>
             </Form>
           )}
         </Formik>

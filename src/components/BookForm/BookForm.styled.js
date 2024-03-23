@@ -28,6 +28,7 @@ export const InputField = styled(Field)`
   width: 400px;
   height: 56px;
   background-color: ${globalColor.inputs};
+  color: ${globalColor.darkText};
   border: none;
 `;
 
@@ -53,4 +54,21 @@ export const Comment = styled.textarea`
   background-color: ${globalColor.inputs};
   border: none;
   resize: none;
+`;
+
+export const Button = styled.button`
+  border-radius: 200px;
+  padding: 16px 60px;
+  /* width: 160px; */
+  height: 56px;
+  border: none;
+  background-color: ${globalColor.btn};
+  color: #fff;
+
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background-color: ${globalColor.btnHover};
+  }
 `;
