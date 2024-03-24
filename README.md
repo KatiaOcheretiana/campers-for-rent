@@ -20,13 +20,15 @@ preferred camper selections.
 
 Frontend:
 
+- Vite,
 - HTML/CSS,
 - JS,
 - Axios,
 - React,
+- Styled-components,
 - Redux,
 - ReduxToolkit,
-- Persist
+- Redux-persist
 
 Backend:
 
