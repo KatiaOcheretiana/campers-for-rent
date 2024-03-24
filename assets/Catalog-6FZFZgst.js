@@ -1,4 +1,4 @@
-import{u as t,g as o,b as g,j as e,s as n,c as j,d as m,a as x,e as b,C as f}from"./index-CnGBeGjU.js";import{b as y,a as v,L as k,C as w}from"./Loader-B5C32SBE.js";import{F as $,a as C,b as F}from"./formik.esm-B3cCsEwn.js";import{a as L,s as q}from"./selectors-CbC4wo0s.js";import"./ModalWindow-BC2XraoX.js";const T=t.h3`
+import{u as t,g as o,b as g,j as e,s as n,c as j,d as m,a as x,e as b,C as f,L as y}from"./index-CeCn-pFK.js";import{b as v,a as k,C as w}from"./CampersList-BcBoFaor.js";import{F as $,a as C,b as F}from"./formik.esm-u5gCkpmW.js";import{a as L,s as q}from"./selectors-CbC4wo0s.js";import"./ModalWindow-CCARjAZN.js";const T=t.h3`
   font-weight: 500;
   color: ${o.lightText};
   margin-bottom: 15px;
@@ -128,8 +128,8 @@ import{u as t,g as o,b as g,j as e,s as n,c as j,d as m,a as x,e as b,C as f}fro
 
   fill: transparent;
   stroke: ${o.darkText};
-`,E=()=>{const a=g(),l=x(y);return e.jsx(V,{children:e.jsxs(z,{htmlFor:"location",children:["Location",e.jsx(A,{type:"text",id:"location",value:l,placeholder:"City, country",onChange:p=>a(b(p.target.value))}),e.jsx(B,{children:e.jsx("use",{href:n+"#icon-location"})})]})})},W=t.div`
+`,E=()=>{const a=g(),l=x(v);return e.jsx(V,{children:e.jsxs(z,{htmlFor:"location",children:["Location",e.jsx(A,{type:"text",id:"location",value:l,placeholder:"City, country",onChange:p=>a(b(p.target.value))}),e.jsx(B,{children:e.jsx("use",{href:n+"#icon-location"})})]})})},W=t.div`
   display: flex;
   flex-direction: row;
   gap: 64px;
-`,P=()=>{const a=x(v);x(L);const l=x(q);return e.jsx(f,{children:e.jsxs(W,{children:[e.jsxs("div",{children:[e.jsx(E,{}),e.jsx(S,{})]}),l?e.jsx(k,{}):e.jsx(w,{campers:a,pathForModal:"catalog"})]})})};export{P as default};
+`,P=()=>{const a=x(k);x(L);const l=x(q);return e.jsx(f,{children:e.jsxs(W,{children:[e.jsxs("div",{children:[e.jsx(E,{}),e.jsx(S,{})]}),l?e.jsx(y,{}):e.jsx(w,{campers:a,pathForModal:"catalog"})]})})};export{P as default};
