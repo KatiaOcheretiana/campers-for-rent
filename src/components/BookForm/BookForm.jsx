@@ -16,8 +16,6 @@ import { useState } from 'react';
 export const BookForm = () => {
   const [choosenDate, setChoosenDate] = useState('');
 
-  console.log(choosenDate);
-
   const initialValues = {
     name: '',
     email: '',
@@ -34,7 +32,6 @@ export const BookForm = () => {
           initialValues={initialValues}
           validationSchema={UserFormSchema}
           onSubmit={(values) => {
-            console.log(values);
             window.location.reload();
           }}
           enableReinitialize={true}
@@ -70,7 +67,7 @@ export const BookForm = () => {
                   touched={touched}
                   setChoosenDate={setChoosenDate}
                   choosenDate={initialValues.bookingDate}
-                  onChange={(date) => console.log(date)}
+                  onChange={(date) => setChoosenDate(date)}
                 />
                 <Comment name="comment" placeholder="Comment"></Comment>
               </ContactUserParam>

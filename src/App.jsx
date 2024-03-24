@@ -33,8 +33,8 @@ function App() {
           <Route path="features" element={<Features />} />
           <Route path="reviews" element={<Rewievs />} />
         </Route>
+        <Route path="*" element={<Home />} />
       </Route>
-      {/* <Route path="*" element={<PageNotFound />} /> */}
     </Routes>
   );
 }

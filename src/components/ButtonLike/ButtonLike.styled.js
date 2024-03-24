@@ -17,8 +17,6 @@ export const IconLike = styled.svg`
   position: absolute;
   width: 24px;
   height: 24px;
-  fill: transparent;
-  stroke: ${globalColor.darkText};
   stroke-width: 2.3px;
   transform: translateY(-50%);
   top: 50%;

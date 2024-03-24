@@ -1,8 +1,33 @@
-# React + Vite
+# Bookings Campers Overview:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bookings Campers is a service/application that facilitates booking campers for
+various purposes. It comprises three main pages:
 
-Currently, two official plugins are available:
+Homepage: Provides a general description of the services offered by the company.
+This page likely serves as an entry point for users to learn about the services
+and offerings.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Catalog Page: Displays a catalog of campers with different configurations.
+  Users can filter the catalog based on equipment, vehicle type, and location.
+  Clicking on camper cards likely opens a modal window with detailed information
+  about the camper, where users can also submit booking applications.
+
+Favorites Page: Shows a collection of camper cards that the user has added to
+their favorites. This page enables users to easily access and manage their
+preferred camper selections.
+
+# Technologies used:
+
+Frontend:
+
+- HTML/CSS,
+- JS,
+- Axios,
+- React,
+- Redux,
+- ReduxToolkit,
+- Persist
+
+Backend:
+
+- MockAPI.

@@ -18,10 +18,8 @@ export const getCampers = createAsyncThunk(
 export const getCampersById = createAsyncThunk(
   'catalog/getCampersById',
   async (credentials, thunkAPI) => {
-    console.log(credentials);
     try {
       const response = await axios.get(`/adverts/?_id=${credentials}`);
-      console.log(response.data[0]);
       return response.data[0];
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

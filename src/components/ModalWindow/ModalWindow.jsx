@@ -44,8 +44,6 @@ const ModalWindow = ({ isOpen, onRequestClose, camperInfo, pathForModal }) => {
   const { camperId } = useParams();
   const dispatch = useDispatch();
 
-  console.log(camperId);
-
   useEffect(() => {
     dispatch(getCampersById(camperId));
   }, []);

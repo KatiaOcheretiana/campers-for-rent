@@ -8,3 +8,8 @@ export const Title = styled.h2`
   font-weight: 500;
   font-size: 22px;
 `;
+
+export const Pictire = styled.img`
+  border-radius: 20px;
+  width: 100%;
+`;

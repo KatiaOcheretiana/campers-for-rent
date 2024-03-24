@@ -6,7 +6,7 @@ import { Container } from '../../styles/GlobalStyles';
 import { selectIsLoading } from '../../redux/catalog/selectors';
 import { Loader } from '../../components/Loader/Loader';
 import camper from '../../assets/image/camper.jpg';
-import { Title } from './Favorites.styled';
+import { Pictire, Title } from './Favorites.styled';
 
 const Favorites = () => {
   const likedCampers = useSelector(selectFavoritesCampers);
@@ -29,7 +29,7 @@ const Favorites = () => {
             you've added campers to your favorites, you'll be able to view them
             here.
           </Title>
-          <img src={camper} alt="camper" />
+          <Pictire src={camper} alt="camper" />
         </>
       )}
       {isLoading ? (
