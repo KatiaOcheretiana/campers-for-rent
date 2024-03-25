@@ -34,7 +34,7 @@ export const List = styled.ul`
 
 export const HeaderField = styled.header`
   margin-bottom: 100px;
-  width: 100%;
+  min-width: 1440px;
   background-color: ${globalColor.inputs};
 
   box-shadow: -3px 17px 22px -6px rgba(217, 210, 210, 0.55);
