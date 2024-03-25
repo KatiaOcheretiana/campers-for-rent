@@ -1,4 +1,4 @@
-import{u as r,g as l,a as s,j as e,C as n,L as m}from"./index-CeCn-pFK.js";import{s as p,a as d,C as u}from"./CampersList-BcBoFaor.js";import{s as h}from"./selectors-CbC4wo0s.js";import"./ModalWindow-CCARjAZN.js";const f="/campers-for-rent/assets/camper-CeFqq0re.jpg",g=r.h2`
+import{u as r,g as l,a as s,j as e,C as n,L as m}from"./index-CL7GpBa0.js";import{s as p,a as d,C as u}from"./CampersList-8RnF6-oP.js";import{s as h}from"./selectors-CbC4wo0s.js";import"./ModalWindow-C2nXC1w1.js";const f="/campers-for-rent/assets/camper-CeFqq0re.jpg",g=r.h2`
   margin-bottom: 40px;
   color: ${l.lightText};
 
