@@ -22,12 +22,12 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
-        <Route path="catalog" element={<Catalog />} />
+        {/* <Route path="catalog" element={<Catalog />} /> */}
         <Route path="catalog/:camperId" element={<Catalog />}>
           <Route path="features" element={<Features />} />
           <Route path="reviews" element={<Rewievs />} />
         </Route>
-        <Route path="favorites" element={<Favorites />} />
+        {/* <Route path="favorites" element={<Favorites />} /> */}
         <Route path="favorites/:camperId" element={<Favorites />}>
           <Route path="features" element={<Features />} />
           <Route path="reviews" element={<Rewievs />} />
