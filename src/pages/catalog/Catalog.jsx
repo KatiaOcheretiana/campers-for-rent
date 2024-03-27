@@ -10,7 +10,6 @@ import { Loader } from '../../components/Loader/Loader';
 
 const Catalog = () => {
   const campersByFilter = useSelector(selectVisibleCampers);
-  const error = useSelector(selectIsError);
   const isLoading = useSelector(selectIsLoading);
 
   return (
