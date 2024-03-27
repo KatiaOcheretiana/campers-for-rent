@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/KatiaOcheretiana/campers-for-rent",
+  "homepage": "https://KatiaOcheretiana.github.io/campers-for-rent",
   "scripts": {
     "build": "vite build",
     "preview": "vite preview",
