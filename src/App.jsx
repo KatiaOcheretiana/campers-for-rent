@@ -8,7 +8,6 @@ import { lazy } from 'react';
 const Home = lazy(() => import('./pages/Home/Home'));
 const Favorites = lazy(() => import('./pages/Favorites/Favorites'));
 const Catalog = lazy(() => import('./pages/Catalog/Catalog'));
-const ModalWindow = lazy(() => import('./components/ModalWindow/ModalWindow'));
 const Rewievs = lazy(() => import('./components/Reviews/Reviews'));
 const Features = lazy(() => import('./components/Features/Features'));
 
